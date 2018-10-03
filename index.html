@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+  <script>
+    var playerSelection = prompt();
+    var computerSelection = computerPlay();
+    function computerPlay(){
+        var choice;
+        var randomNum = Math.floor(Math.random()*101);
+        if(randomNum < 34){
+          var choice = 'ROCK';
+        } else if(randomNum < 67){
+          var choice = 'SCISSORS';
+        } else if(randomNum > 66){
+          var choice = 'PAPER'
+        }
+        return choice;
+    }
+    function round(playerSelection, computerSelection){
+        var win;
+        var playerSelection = prompt();
+        computerSelection = computerPlay();
+
+        if(playerSelection == 'ROCK' && computerSelection == 'SCISSORS'){
+          var win = "You Win";
+        } else if(playerSelection == 'ROCK' && computerSelection == 'PAPER'){
+          var win = "You Lose";
+        } else if(playerSelection == 'ROCK' && computerSelection == 'ROCK'){
+          var win = "Draw";
+        } else if(playerSelection == 'PAPER' && computerSelection == 'SCISSORS'){
+          var win = "You Lose";
+        } else if(playerSelection == 'PAPER' && computerSelection == 'PAPER'){
+          var win = "Draw";
+        } else if(playerSelection == 'PAPER' && computerSelection == 'ROCK'){
+          var win = "You Win";
+        } else if(playerSelection == 'SCISSORS' && computerSelection == 'SCISSORS'){
+          var win = "Draw";
+        } else if(playerSelection == 'SCISSORS' && computerSelection == 'PAPER'){
+          var win = "You Win";
+        } else if(playerSelection == 'SCISSORS' && computerSelection == 'ROCK'){
+          var win = "You Lose";
+        }
+
+        return win;
+    }
+    function game(){
+      var wins=0;
+      var loss=0;
+      var draws=0;
+      for(var i = 0; i < 5; i++){
+        var result = round(playerSelection, computerSelection);
+        if(result == "You Win"){
+          wins++;
+        } else if(result == "You Lose"){
+          loss++;
+        } else{
+          draws++;
+        }
+        console.log(result);
+      }
+      if(wins>loss){
+        return "You Won the Game";
+      } else{
+        return "You Lose the Game"
+      }
+    }
+
+
+  </script>
+</body>
+</html>
